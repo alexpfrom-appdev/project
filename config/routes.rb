@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "car_infos#index"
+  root 'car_infos#index'
 
   resources :car_infos
   devise_for :users

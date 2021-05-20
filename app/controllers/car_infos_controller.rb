@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CarInfosController < ApplicationController
-  before_action :set_car_info, only: [:show, :edit, :update, :destroy]
+  before_action :set_car_info, only: %i[show edit update destroy]
 
   # GET /car_infos
   def index
@@ -7,8 +9,7 @@ class CarInfosController < ApplicationController
   end
 
   # GET /car_infos/1
-  def show
-  end
+  def show; end
 
   # GET /car_infos/new
   def new
@@ -16,8 +17,7 @@ class CarInfosController < ApplicationController
   end
 
   # GET /car_infos/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /car_infos
   def create
@@ -46,13 +46,14 @@ class CarInfosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_car_info
-      @car_info = CarInfo.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def car_info_params
-      params.require(:car_info).permit(:user_id, :car_mark, :car_number, :car_lease_info, :misc_info, :car_type)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_car_info
+    @car_info = CarInfo.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def car_info_params
+    params.require(:car_info).permit(:user_id, :car_mark, :car_number, :car_lease_info, :misc_info, :car_type)
+  end
 end
