@@ -1,0 +1,50 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Car Info #<%= car_info.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <dd><%= car_info.user_id %></dd>
+
+      <dt>Car mark</dt>
+      <dd><%= car_info.car_mark %></dd>
+
+      <dt>Car number</dt>
+      <dd><%= car_info.car_number %></dd>
+
+      <dt>Car lease info</dt>
+      <dd><%= car_info.car_lease_info %></dd>
+
+      <dt>Misc info</dt>
+      <dd><%= car_info.misc_info %></dd>
+
+      <dt>Car type</dt>
+      <dd><%= car_info.car_type %></dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back car_info, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_car_info_url(car_info), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to car_info, method: :delete, data: { confirm: "Do you really want to delete this car_info?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(car_info.updated_at) %> ago
+  </div>
+</div>

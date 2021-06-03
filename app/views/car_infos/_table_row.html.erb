@@ -1,0 +1,41 @@
+<tr>
+  <td>
+    <%= car_info.user_id %>
+  </td>
+
+  <td>
+    <%= car_info.car_mark %>
+  </td>
+
+  <td>
+    <%= car_info.car_number %>
+  </td>
+
+  <td>
+    <%= car_info.car_lease_info %>
+  </td>
+
+  <td>
+    <%= car_info.misc_info %>
+  </td>
+
+  <td>
+    <%= car_info.car_type %>
+  </td>
+
+  <td>
+    <div class="btn-group">
+      <%= link_to car_info, class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-search-plus fa-fw"></i>
+      <% end %>
+
+      <%= link_to edit_car_info_url(car_info), class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-edit fa-fw"></i>
+      <% end %>
+
+      <%= link_to car_info, method: :delete, data: { confirm: "Do you really want to delete this car_info?" }, class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-trash-alt fa-fw"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

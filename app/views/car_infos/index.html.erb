@@ -1,0 +1,89 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1 class="display-4">
+      Car Infos
+
+      <%= link_to new_car_info_path, class: "btn btn-lg btn-outline-secondary" do %>
+        <i class="fas fa-plus fa-fw"></i>
+      <% end %>
+    </h1>
+  </div>
+</div>
+
+<!-- Table example -->
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              User
+            </th>
+
+            <th>
+              Car mark
+            </th>
+
+            <th>
+              Car number
+            </th>
+
+            <th>
+              Car lease info
+            </th>
+
+            <th>
+              Misc info
+            </th>
+
+            <th>
+              Car type
+            </th>
+
+            <th>
+              Actions
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render collection: @car_infos, partial: "table_row", as: :car_info %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Card deck example -->
+
+<% @car_infos.each_slice(3) do |slice| %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card-deck">
+      <%= render collection: slice, partial: "card", as: :car_info %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<!-- List group example -->
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-8">
+    <div class="card">
+      <h1 class="card-header h4 d-flex align-items-center justify-content-between">
+        Car Infos
+
+        <%= link_to new_car_info_path, class: "btn btn-sm btn-outline-secondary" do %>
+          <i class="fas fa-plus fa-fw"></i>
+        <% end %>
+      </h1>
+
+      <div class="list-group list-group-flush">
+        <%= render collection: @car_infos, partial: "list_item", as: :car_info %>
+      </div>
+    </div>
+  </div>
+</div>
